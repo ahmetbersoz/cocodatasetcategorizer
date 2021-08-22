@@ -2,9 +2,14 @@ fs = require('fs');
 path = require('path');
 
 const labelsPath = './labels.json';
-const imagesPath = './t1_label_filter'
+const imagesPath = './images'
 
-const input = JSON.parse(fs.readFileSync(labelsPath));
+let input = JSON.parse(fs.readFileSync(labelsPath));
+
+input.categories.forEach(category => {
+    category.supercategory = 'none';
+});
+
 const output = {
     train: {
         images: [],
@@ -46,8 +51,7 @@ input.images.forEach(image => {
 
 Object.keys(output).forEach(type => {
     if (!fs.existsSync(path.join(__dirname, 'labels'))) fs.mkdirSync(path.join(__dirname, 'labels'))
-    if (!fs.existsSync(path.join(__dirname, 'labels', type))) fs.mkdirSync(path.join(__dirname, 'labels', type))
 
-    fs.writeFileSync(path.join(__dirname, 'labels', type, `${type}_labels.json`), JSON.stringify(output[type]));
+    fs.writeFileSync(path.join(__dirname, 'labels', `${type}_labels.json`), JSON.stringify(output[type]));
 });
 
