@@ -1,0 +1,19 @@
+{
+  "name": "cocodatasetcategorizer",
+  "version": "1.0.0",
+  "description": "This script groups images to 60% train, 20% test, 20% train directory",
+  "main": "index.js",
+  "scripts": {
+    "test": "run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmetbersoz/cocodatasetcategorizer.git"
+  },
+  "author": "ahmetbersoz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahmetbersoz/cocodatasetcategorizer/issues"
+  },
+  "homepage": "https://github.com/ahmetbersoz/cocodatasetcategorizer#readme"
+}
